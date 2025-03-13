@@ -1,7 +1,7 @@
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { corsOptions } from "./constant/config.js";
+import { corsOptions } from "./config/config.js";
 
 const app = express();
 const httpserver = createServer(app);

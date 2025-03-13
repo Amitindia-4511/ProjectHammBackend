@@ -7,7 +7,7 @@ import { chatRouter } from "./routing/chat.router.js";
 import verifyUser from "./middleware/verifyUser.js";
 import cors from "cors";
 import { httpserver, app } from "./socket.js";
-import { corsOptions } from "./constant/config.js";
+import { corsOptions } from "./config/config.js";
 
 async function startServer() {
   dotenv.config();
