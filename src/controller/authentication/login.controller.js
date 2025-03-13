@@ -12,7 +12,7 @@ async function loginUser(req, res) {
         const token = generateToken(user._id.toString());
         res.cookie("authUser", token, {
           httpOnly: true, // Prevent JavaScript from accessing the cookie
-          secure: false, // Use secure cookie only in production (HTTPS)
+          secure: true, // Use secure cookie only in production (HTTPS)
           maxAge: 3600000, // 1 hour (same as token expiration)
           sameSite: "None", // Prevent the cookie from being sent in cross-origin requests
         });
