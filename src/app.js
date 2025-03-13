@@ -19,16 +19,14 @@ async function startServer() {
   app.use(cors(corsOptions));
 
   //router middleware
-  app.use("/", (req, res) => {
-    res.send("Server is up and running");
-  });
   app.use("/api/auth", authUserRouter);
   app.use("/api/chat", verifyUser, chatRouter);
-
+  // app.use("/", (req, res) => {
+  //   res.send("Server is up and running");
+  // });
   await connectionDatabase();
   httpserver.listen(PORT, () => {
     console.log(`Server is started and listening at PORT ${PORT}`);
-    return `Server is started and listening at PORT ${PORT}`;
   });
 }
 
