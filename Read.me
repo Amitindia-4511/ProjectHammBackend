@@ -1,0 +1,39 @@
+Summary of Routes:
+
+    Authentication:
+        /api/auth/register, /api/auth/login, /api/auth/logout, /api/auth/me
+
+    User Management:
+        /api/users/:id, /api/users/:id/password, /api/users/:id/delete
+
+    Chat and Messaging:
+        /api/chats/, /api/chats/:chatId/messages, /api/chats/:chatId/messages/:messageId
+
+    Real-Time (via Socket.io):
+        Events like message, joinRoom, leaveRoom, etc.
+
+    Notifications (optional):
+        /api/notifications, /api/notifications/:id
+
+    Search (optional):
+        /api/search/users, /api/search/messages
+
+    Admin (optional):
+        /api/admin/users, /api/admin/messages
+
+    --------------
+    
+/models
+  - User.js  (mongoose model for User)
+
+  /controllers
+    - register.controller.js  (handles user registration)
+    - login.controller.js     (handles user login)
+
+  /utils
+    - auth.js                 (contains authentication logic like comparePassword, generateToken)
+
+  /routes
+    - authUser.js             (router to handle /register, /login, etc.)
+
+server.js                    (main server file)
