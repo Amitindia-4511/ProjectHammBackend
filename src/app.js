@@ -28,6 +28,7 @@ async function startServer() {
   await connectionDatabase();
   httpserver.listen(PORT, () => {
     console.log(`Server is started and listening at PORT ${PORT}`);
+    return `Server is started and listening at PORT ${PORT}`;
   });
 }
 
