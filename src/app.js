@@ -7,15 +7,12 @@ import { chatRouter } from "./routing/chat.router.js";
 import verifyUser from "./middleware/verifyUser.js";
 import cors from "cors";
 import { httpserver, app } from "./socket.js";
-import path from "path";
-import express from "express";
 import { corsOptions } from "./constant/config.js";
 
 async function startServer() {
   dotenv.config();
 
   const PORT = process.env.PORT || 3001;
-  const __dirname = path.resolve();
 
   app.use(json());
   app.use(cookieParser());
@@ -27,13 +24,6 @@ async function startServer() {
   });
   app.use("/api/auth", authUserRouter);
   app.use("/api/chat", verifyUser, chatRouter);
-
-  if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "../frontend/dist")));
-    app.get("*", (_, res) => {
-      res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
-    });
-  }
 
   await connectionDatabase();
   httpserver.listen(PORT, () => {
