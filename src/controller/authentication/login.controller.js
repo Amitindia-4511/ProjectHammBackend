@@ -14,7 +14,7 @@ async function loginUser(req, res) {
           httpOnly: true, // Prevent JavaScript from accessing the cookie
           secure: false, // Use secure cookie only in production (HTTPS)
           maxAge: 3600000, // 1 hour (same as token expiration)
-          sameSite: "Strict", // Prevent the cookie from being sent in cross-origin requests
+          sameSite: "None", // Prevent the cookie from being sent in cross-origin requests
         });
 
         return res.status(200).json({
